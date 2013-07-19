@@ -1,0 +1,33 @@
+{
+  "name": "nuwanda",
+  "description": "check progressive jpeg",
+  "version": "0.1.0",
+  "author": "stephane rios (http://twiter.com/@stefounet)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fasterize/nuwanda.git"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "readable-stream" : "",
+    "optimist": ""
+  },
+  "devDependencies": {
+    "mocha": ""
+  },
+  "engines": {
+    "node": ">=0.4.x"
+  },
+  "keywords": [
+    "progressive",
+    "jpeg",
+    "image",
+    "marker"
+  ],
+  "bin": "./bin/nuwanda",
+  "scripts": {
+    "test": "mocha test/index.js --spec"
+  },
+  "optionalDependencies": {},
+  "main": "nuwanda"
+}

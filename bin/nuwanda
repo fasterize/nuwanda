@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+var fs = require('fs'),
+    argv = require('optimist')
+      .usage('nuwanda [file|stdin]')
+      .argv,
+    nuwanda = require('../lib/nuwanda').Nuwanda;
+
+var source;
+
+//handle case where input is piped or with a file arg    
+if (process.stdin.isTTY) {
+  source = fs.createReadStream(process.argv[2]);
+  }
+else {
+  //piped content
+  source = process.stdin;
+  }
+
+var progressiveCheck =  new nuwanda(source);
+
+progressiveCheck.on('progressive', function (flag) {
+  if (flag) console.log('progressive');
+});
