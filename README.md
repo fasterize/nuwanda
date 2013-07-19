@@ -26,15 +26,32 @@ windows and linux support in the next version
 Usage
 ====
 
+command-line
     nuwanda file.jpg
 
-OR
+OR pipe a jpg to it
 
     cat file.jpg | nuwanda
 
-OR
+OR with the provided index.js file 
 
     node index.js file.jpg
+
+OR as a module, just listen to the progressive event. The emitted value is true if the jpg is progressive, false if not (?! ;-)
+
+```javascript
+var fs = require('fs'),
+    nuwanda = require('./lib/nuwanda').Nuwanda;
+
+var file = fs.createReadStream(process.argv[2]);
+
+var progressiveCheck =  new nuwanda(file);
+
+progressiveCheck.on('progressive', function (flag) {
+  if (flag) console.log('progressive');
+});
+
+```
 
 Tests
 ===

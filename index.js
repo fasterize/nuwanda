@@ -6,5 +6,5 @@ var file = fs.createReadStream(process.argv[2]);
 var progressiveCheck =  new nuwanda(file);
 
 progressiveCheck.on('progressive', function (flag) {
-  console.log('progressive');
+  if (flag) console.log('progressive');
 });
