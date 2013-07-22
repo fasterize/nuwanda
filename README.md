@@ -41,7 +41,7 @@ OR as a module, just listen to the progressive event. The emitted value is true 
 
 ```javascript
 var fs = require('fs'),
-    nuwanda = require('./lib/nuwanda').Nuwanda;
+    nuwanda = require('nuwanda').Nuwanda;
 
 var file = fs.createReadStream(process.argv[2]);
 
@@ -52,6 +52,20 @@ progressiveCheck.on('progressive', function (flag) {
 });
 
 ```
+
+OR as a module but with a raw buffer
+```javascript
+var fs = require('fs'),
+    nuwanda = require('nuwanda').Nuwanda;
+
+var file = fs.readFileSync(process.argv[2]);
+
+var flag =  (new nuwanda(file, {buffer:true})).progressive;
+
+if (flag) console.log('progressive');
+```
+
+
 
 Tests
 ===
