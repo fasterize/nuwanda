@@ -23,10 +23,14 @@ Supported env
 
 windows and linux support in the next version 
 
+[![Build Status](https://travis-ci.org/[fasterize]/[nuwanda].png)](https://travis-ci.org/[fasterize]/[nuwanda])
+
+
 Usage
 ====
 
 command-line
+
     nuwanda file.jpg
 
 OR pipe a jpg to it
@@ -74,7 +78,7 @@ Tests
 
 Caveats
 =======
-No error handling for the moment
+Not so much error handling for the moment
 
 Inner working
 =============
@@ -85,7 +89,6 @@ As soon as it detects the progressive jpeg marker (0xff 0xc2), it emits a "progr
 TODO
 ====
  * windows /linux tests
- * tests
 
 Why
 ===
