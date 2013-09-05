@@ -23,7 +23,7 @@ Supported env
 
 windows and linux support in the next version 
 
-[![Build Status](https://travis-ci.org/[fasterize]/[nuwanda].png)](https://travis-ci.org/[fasterize]/[nuwanda])
+[![Build Status](https://travis-ci.org/fasterize/nuwanda.png)](https://travis-ci.org/fasterize/nuwanda)
 
 
 Usage
