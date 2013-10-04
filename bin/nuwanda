@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 var fs = require('fs'),
     argv = require('optimist')
-      .usage('nuwanda [file|stdin]')
+      .usage('Usage : nuwanda [file|stdin]')
+      .demand('_')
+      .describe('_', 'Need a stream or a file')
       .argv,
     nuwanda = require('../lib/nuwanda').Nuwanda;
 
@@ -9,7 +11,14 @@ var source;
 
 //handle case where input is piped or with a file arg    
 if (process.stdin.isTTY) {
-  source = fs.createReadStream(process.argv[2]);
+  var file = argv._[0];
+  //check if file exists before trying to load content
+  if (fs.existsSync(file)) {
+    source = fs.createReadStream(file);
+    }
+  else {
+    console.log('file not found');
+    }
   }
 else {
   //piped content
@@ -19,5 +28,10 @@ else {
 var progressiveCheck =  new nuwanda(source);
 
 progressiveCheck.on('progressive', function (flag) {
-  if (flag) console.log('progressive');
+  if (flag) {
+    console.log('progressive');
+    }
+  else {
+    console.log('not progressive');
+    }
 });
